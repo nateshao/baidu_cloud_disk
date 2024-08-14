@@ -1,61 +1,65 @@
 service core-api {
-	// 用户登录
-	@handler UserLogin
-	post /user/login (LoginRequest) returns (LoginReply)
+    // 用户登录
+    @handler UserLogin
+    post /user/login (LoginRequest) returns (LoginReply)
 
-	// 用户详情
-	@handler UserDetail
-	post /user/detail (UserDetailRequest) returns (UserDetailReply)
+    // 用户详情
+    @handler UserDetail
+    post /user/detail (UserDetailRequest) returns (UserDetailReply)
 
-	// 验证码发送
-	@handler MailCodeSendRegister
-	post /mail/code/send/register (MailCodeSendRequest) returns (MailCodeSendReply)
+    // 验证码发送
+    @handler MailCodeSendRegister
+    post /mail/code/send/register (MailCodeSendRequest) returns (MailCodeSendReply)
 
-	// 用户注册
-	@handler UserRegister
-	post /user/register (UserRegisterRequest) returns (UserRegisterReply)
+    // 用户注册
+    @handler UserRegister
+    post /user/register (UserRegisterRequest) returns (UserRegisterReply)
 
-	// // 获取资源详情
-	// @handler ShareBasicDetail
-	// get /share/basic/detail(ShareBasicDetailRequest) returns (ShareBasicDetailReply)
+    // 获取资源详情
+    @handler ShareBasicDetail
+    get /share/basic/detail (ShareBasicDetailRequest) returns (ShareBasicDetailReply)
 }
 
 type LoginRequest {
-	Name     string `json:"name"`
-	Password string `json:"password"`
+    Name string `json:"name"`
+    Password string `json:"password"`
 }
 
 type LoginReply {
-	Token        string `json:"token"`
-	RefreshToken string `json:"refresh_token"`
+    Token string `json:"token"`
+    RefreshToken string `json:"refresh_token"`
 }
 
 type UserDetailRequest {
-	Identity string `json:"identity"`
+    Identity string `json:"identity"`
 }
 
 type UserDetailReply {
-	Name  string `json:"name"`
-	Email string `json:"email"`
+    Name string `json:"name"`
+    Email string `json:"email"`
 }
 
 type MailCodeSendRequest {
-	Email string `json:"email"`
+    Email string `json:"email"`
 }
 
 type MailCodeSendReply {
 }
 
 type UserRegisterRequest {
-	// 用户名
-	Name string `json:"name"`
-	// 密码
-	Password string `json:"password"`
-	// 邮箱
-	Email string `json:"email"`
-	// 验证码
-	Code string `json:"code"`
+    // 用户名
+    Name string `json:"name"`
+    // 密码
+    Password string `json:"password"`
+    // 邮箱
+    Email string `json:"email"`
+    // 验证码
+    Code string `json:"code"`
 }
 
 type UserRegisterReply {
+}
+type ShareBasicDetailRequest {
+}
+type ShareBasicDetailReply {
 }
