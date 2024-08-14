@@ -1,9 +1,18 @@
 # [Baidu_Cloud_Disk]()
 
 > 仿照百度轻量级云盘系统，基于Golang + go-zero + Redis + Mysql + xorm + Oss实现。
+
 > goctl 安装: https://go-zero.dev/docs/tasks/installation/goctl
 
-使用到的命令
+
+## 运行项目
+```go
+
+# 在core目录下执行
+go run core.go -f etc/core-api.yaml
+
+```
+## 相关命令
 ```text
 # 创建API服务
 goctl api new core
