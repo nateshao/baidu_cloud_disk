@@ -1,9 +1,9 @@
 package svc
 
 import (
-	"cloud_disk_demo/core/internal/config"
-	"cloud_disk_demo/core/internal/middleware"
-	"cloud_disk_demo/core/models"
+	"baidu_cloud_disk/core/internal/config"
+	"baidu_cloud_disk/core/internal/middleware"
+	"baidu_cloud_disk/core/models"
 	"github.com/go-redis/redis/v8"
 	"github.com/zeromicro/go-zero/rest"
 	"xorm.io/xorm"

@@ -6,22 +6,22 @@ service core-api {
 	// 用户详情
 	@handler UserDetail
 	post /user/detail (UserDetailRequest) returns (UserDetailReply)
-//
-// // 验证码发送
-// @handler MailCodeSendRegister
-// post /mail/code/send/register(MailCodeSendRequest) returns (MailCodeSendReply)
-//
-// // 用户注册
-// @handler UserRegister
-// post /user/register(UserRegisterRequest) returns (UserRegisterReply)
-//
-// // 获取资源详情
-// @handler ShareBasicDetail
-// get /share/basic/detail(ShareBasicDetailRequest) returns (ShareBasicDetailReply)
+
+	// 验证码发送
+	@handler MailCodeSendRegister
+	post /mail/code/send/register (MailCodeSendRequest) returns (MailCodeSendReply)
+
+	// 用户注册
+	@handler UserRegister
+	post /user/register (UserRegisterRequest) returns (UserRegisterReply)
+
+	// // 获取资源详情
+	// @handler ShareBasicDetail
+	// get /share/basic/detail(ShareBasicDetailRequest) returns (ShareBasicDetailReply)
 }
 
 type LoginRequest {
-	name     string `json:"name"`
+	Name     string `json:"name"`
 	Password string `json:"password"`
 }
 
@@ -39,3 +39,23 @@ type UserDetailReply {
 	Email string `json:"email"`
 }
 
+type MailCodeSendRequest {
+	Email string `json:"email"`
+}
+
+type MailCodeSendReply {
+}
+
+type UserRegisterRequest {
+	// 用户名
+	Name string `json:"name"`
+	// 密码
+	Password string `json:"password"`
+	// 邮箱
+	Email string `json:"email"`
+	// 验证码
+	Code string `json:"code"`
+}
+
+type UserRegisterReply {
+}

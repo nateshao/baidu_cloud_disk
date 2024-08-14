@@ -4,6 +4,8 @@
 > 
 > B站视频链接：https://www.bilibili.com/video/BV1cr4y1s7H4/
 
+> goctl 安装: https://go-zero.dev/docs/tasks/installation/goctl
+
 使用到的命令
 ```text
 # 创建API服务

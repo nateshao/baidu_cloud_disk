@@ -1,8 +1,8 @@
 package helper
 
 import (
+	"baidu_cloud_disk/core/define"
 	"bytes"
-	"cloud_disk_demo/core/define"
 	"context"
 	"crypto/md5"
 	"crypto/tls"

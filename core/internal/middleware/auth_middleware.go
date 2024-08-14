@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"cloud_disk_demo/core/helper"
+	"baidu_cloud_disk/core/helper"
 	"net/http"
 )
 

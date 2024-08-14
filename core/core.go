@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"cloud_disk_demo/core/internal/config"
-	"cloud_disk_demo/core/internal/handler"
-	"cloud_disk_demo/core/internal/svc"
+	"baidu_cloud_disk/core/internal/config"
+	"baidu_cloud_disk/core/internal/handler"
+	"baidu_cloud_disk/core/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"

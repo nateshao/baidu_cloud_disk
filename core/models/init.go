@@ -1,7 +1,7 @@
 package models
 
 import (
-	"cloud_disk_demo/core/internal/config"
+	"baidu_cloud_disk/core/internal/config"
 	"github.com/go-redis/redis/v8"
 	_ "github.com/go-sql-driver/mysql"
 	"log"

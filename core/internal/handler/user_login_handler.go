@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"cloud_disk_demo/core/internal/logic"
-	"cloud_disk_demo/core/internal/svc"
-	"cloud_disk_demo/core/internal/types"
+	"baidu_cloud_disk/core/internal/logic"
+	"baidu_cloud_disk/core/internal/svc"
+	"baidu_cloud_disk/core/internal/types"
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 

@@ -1,9 +1,9 @@
 package logic
 
 import (
-	"cloud_disk_demo/core/internal/svc"
-	"cloud_disk_demo/core/internal/types"
-	"cloud_disk_demo/core/models"
+	"baidu_cloud_disk/core/internal/svc"
+	"baidu_cloud_disk/core/internal/types"
+	"baidu_cloud_disk/core/models"
 	"context"
 	"errors"
 
