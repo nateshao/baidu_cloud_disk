@@ -1,9 +1,6 @@
-# CloudDisk
+# [Baidu_Cloud_Disk]()
 
-> 轻量级云盘系统，基于go-zero、xorm实现。
-> 
-> B站视频链接：https://www.bilibili.com/video/BV1cr4y1s7H4/
-
+> 仿照百度轻量级云盘系统，基于Golang + go-zero + Redis + Mysql + xorm + Oss实现。
 > goctl 安装: https://go-zero.dev/docs/tasks/installation/goctl
 
 使用到的命令
