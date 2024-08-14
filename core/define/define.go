@@ -12,7 +12,7 @@ type UserClaim struct {
 	jwt.StandardClaims
 }
 
-var JwtKey = "cloud-disk-key"
+var JwtKey = "baidu_cloud_disk-key"
 var MailPassword = os.Getenv("MailPassword")
 
 // CodeLength 验证码长度

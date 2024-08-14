@@ -104,7 +104,7 @@ func CosUpload(r *http.Request) (string, error) {
 	})
 
 	file, fileHeader, err := r.FormFile("file")
-	key := "cloud-disk/" + UUID() + path.Ext(fileHeader.Filename)
+	key := "baidu_cloud_disk/" + UUID() + path.Ext(fileHeader.Filename)
 
 	_, err = client.Object.Put(
 		context.Background(), key, file, nil,
@@ -126,7 +126,7 @@ func MinIOUpload(r *http.Request) (string, error) {
 
 	// 获取文件信息
 	file, fileHeader, err := r.FormFile("file")
-	bucketName := "cloud-disk"
+	bucketName := "baidu_cloud_disk"
 	objectName := UUID() + path.Ext(fileHeader.Filename)
 
 	_, err = minioClient.PutObject(context.Background(), bucketName, objectName, file, fileHeader.Size,
@@ -147,7 +147,7 @@ func CosInitPart(ext string) (string, string, error) {
 			SecretKey: define.TencentSecretKey,
 		},
 	})
-	key := "cloud-disk/" + UUID() + ext
+	key := "baidu_cloud_disk/" + UUID() + ext
 	v, _, err := client.Object.InitiateMultipartUpload(context.Background(), key, nil)
 	if err != nil {
 		return "", "", err

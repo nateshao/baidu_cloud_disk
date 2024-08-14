@@ -1,7 +1,7 @@
 package test
 
 import (
-	"cloud-disk/core/define"
+	"baidu_cloud_disk/core/define"
 	"crypto/tls"
 	"github.com/jordan-wright/email"
 	"net/smtp"

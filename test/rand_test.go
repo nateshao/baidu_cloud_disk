@@ -1,7 +1,7 @@
 package test
 
 import (
-	"cloud-disk/core/helper"
+	"baidu_cloud_disk/core/helper"
 	"testing"
 )
 

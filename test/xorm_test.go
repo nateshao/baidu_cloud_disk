@@ -1,8 +1,8 @@
 package test
 
 import (
+	"baidu_cloud_disk/core/models"
 	"bytes"
-	"cloud-disk/core/models"
 	"encoding/json"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
