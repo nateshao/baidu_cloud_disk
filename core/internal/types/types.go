@@ -79,7 +79,7 @@ type FileUploadReply struct {
 }
 
 type UserRepositorySaveRequest struct {
-	ParentId           string `json:"parentId"`
+	ParentId           int64  `json:"parentId"`
 	RepositoryIdentity string `json:"repositoryIdentity"`
 	Ext                string `json:"ext"`
 	Name               string `json:"name"`
