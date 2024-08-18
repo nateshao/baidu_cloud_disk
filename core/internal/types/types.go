@@ -87,6 +87,15 @@ type UserFolder struct {
 	Name     string `json:"name"`
 }
 
+type UserFolderCreateReply struct {
+	Identity string `json:"identity"`
+}
+
+type UserFolderCreateRequest struct {
+	ParentId int64  `json:"parent_id"`
+	Name     string `json:"name"`
+}
+
 type UserFolderListReply struct {
 	List []*UserFolder `json:"list"`
 }

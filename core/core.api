@@ -43,10 +43,10 @@ service core-api {
 	// 用户文件名称修改
 	@handler UserFileNameUpdate
 	post /user/file/name/update (UserFileNameUpdateRequest) returns (UserFileNameUpdateReply)
-//
-//    // 用户-文件夹创建
-//    @handler UserFolderCreate
-//    post /user/folder/create(UserFolderCreateRequest) returns (UserFolderCreateReply)
+
+	// 用户-文件夹创建
+	@handler UserFolderCreate
+	post /user/folder/create (UserFolderCreateRequest) returns (UserFolderCreateReply)
 //
 //    // 用户-文件删除
 //    @handler UserFileDelete
@@ -79,6 +79,15 @@ service core-api {
 //    // 文件分片上传完成
 //    @handler FileUploadChunkComplete
 //    post /file/upload/chunk/complete(FileUploadChunkCompleteRequest) returns (FileUploadChunkCompleteReply)
+}
+
+type UserFolderCreateRequest {
+	ParentId int64  `json:"parent_id"`
+	Name     string `json:"name"`
+}
+
+type UserFolderCreateReply {
+	Identity string `json:"identity"`
 }
 
 type UserFileNameUpdateRequest {
