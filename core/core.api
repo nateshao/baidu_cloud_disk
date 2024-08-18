@@ -20,13 +20,14 @@ service core-api {
 	get /share/basic/detail (ShareBasicDetailRequest) returns (ShareBasicDetailReply)
 }
 
-@server(
+@server (
 	middleware: Auth
 )
 service core-api {
 	// 文件上传
 	@handler FileUpload
 	post /file/upload (FileUploadRequest) returns (FileUploadReply)
+
 	// 用户文件的关联存储
 	@handler UserRepositorySave
 	post /user/repository/save (UserRepositorySaveRequest) returns (UserRepositorySaveReply)
@@ -34,50 +35,63 @@ service core-api {
 	// 用户文件列表
 	@handler UserFileList
 	post /user/file/list (UserFileListRequest) returns (UserFileListReply)
-	//
-	//    // 用户文件夹列表
-	//    @handler UserFolderList
-	//    post /user/folder/list(UserFolderListRequest) returns (UserFolderListReply)
-	//
-	//    // 用户文件名称修改
-	//    @handler UserFileNameUpdate
-	//    post /user/file/name/update(UserFileNameUpdateRequest) returns (UserFileNameUpdateReply)
-	//
-	//    // 用户-文件夹创建
-	//    @handler UserFolderCreate
-	//    post /user/folder/create(UserFolderCreateRequest) returns (UserFolderCreateReply)
-	//
-	//    // 用户-文件删除
-	//    @handler UserFileDelete
-	//    delete /user/file/delete(UserFileDeleteRequest) returns (UserFileDeleteReply)
-	//
-	//    // 用户-文件移动
-	//    @handler UserFileMove
-	//    put /user/file/move(UserFileMoveRequest) returns (UserFileMoveReply)
-	//
-	//    // 创建分享记录
-	//    @handler ShareBasicCreate
-	//    post /share/basic/create(ShareBasicCreateRequest) returns (ShareBasicCreateReply)
-	//
-	//    // 资源保存
-	//    @handler ShareBasicSave
-	//    post /share/basic/save(ShareBasicSaveRequest) returns (ShareBasicSaveReply)
-	//
-	//    // 刷新Authorization
-	//    @handler RefreshAuthorization
-	//    post /refresh/authorization(RefreshAuthorizationRequest) returns (RefreshAuthorizationReply)
-	//
-	//    // 文件上传前基本信息处理
-	//    @handler FileUploadPrepare
-	//    post /file/upload/prepare(FileUploadPrepareRequest) returns (FileUploadPrepareReply)
-	//
-	//    // 文件分片上传
-	//    @handler FileUploadChunk
-	//    post /file/upload/chunk(FileUploadChunkRequest) returns (FileUploadChunkReply)
-	//
-	//    // 文件分片上传完成
-	//    @handler FileUploadChunkComplete
-	//    post /file/upload/chunk/complete(FileUploadChunkCompleteRequest) returns (FileUploadChunkCompleteReply)
+
+	// 用户文件夹列表
+	@handler UserFolderList
+	post /user/folder/list (UserFolderListRequest) returns (UserFolderListReply)
+//
+//    // 用户文件名称修改
+//    @handler UserFileNameUpdate
+//    post /user/file/name/update(UserFileNameUpdateRequest) returns (UserFileNameUpdateReply)
+//
+//    // 用户-文件夹创建
+//    @handler UserFolderCreate
+//    post /user/folder/create(UserFolderCreateRequest) returns (UserFolderCreateReply)
+//
+//    // 用户-文件删除
+//    @handler UserFileDelete
+//    delete /user/file/delete(UserFileDeleteRequest) returns (UserFileDeleteReply)
+//
+//    // 用户-文件移动
+//    @handler UserFileMove
+//    put /user/file/move(UserFileMoveRequest) returns (UserFileMoveReply)
+//
+//    // 创建分享记录
+//    @handler ShareBasicCreate
+//    post /share/basic/create(ShareBasicCreateRequest) returns (ShareBasicCreateReply)
+//
+//    // 资源保存
+//    @handler ShareBasicSave
+//    post /share/basic/save(ShareBasicSaveRequest) returns (ShareBasicSaveReply)
+//
+//    // 刷新Authorization
+//    @handler RefreshAuthorization
+//    post /refresh/authorization(RefreshAuthorizationRequest) returns (RefreshAuthorizationReply)
+//
+//    // 文件上传前基本信息处理
+//    @handler FileUploadPrepare
+//    post /file/upload/prepare(FileUploadPrepareRequest) returns (FileUploadPrepareReply)
+//
+//    // 文件分片上传
+//    @handler FileUploadChunk
+//    post /file/upload/chunk(FileUploadChunkRequest) returns (FileUploadChunkReply)
+//
+//    // 文件分片上传完成
+//    @handler FileUploadChunkComplete
+//    post /file/upload/chunk/complete(FileUploadChunkCompleteRequest) returns (FileUploadChunkCompleteReply)
+}
+
+type UserFolderListRequest {
+	Identity string `json:"identity,optional"`
+}
+
+type UserFolderListReply {
+	List []*UserFolder `json:"list"`
+}
+
+type UserFolder {
+	Identity string `json:"identity"`
+	Name     string `json:"name"`
 }
 
 type UserFileListRequest {
@@ -124,8 +138,7 @@ type MailCodeSendRequest {
 	Email string `json:"email"`
 }
 
-type MailCodeSendReply {
-}
+type MailCodeSendReply {}
 
 type UserRegisterRequest {
 	// 用户名
@@ -138,13 +151,18 @@ type UserRegisterRequest {
 	Code string `json:"code"`
 }
 
-type UserRegisterReply {
-}
+type UserRegisterReply {}
 
 type ShareBasicDetailRequest {
+	Identity string `json:"identity,optional"`
 }
 
 type ShareBasicDetailReply {
+	RepositoryIdentity string `json:"repository_identity"`
+	Name               string `json:"name"`
+	Ext                string `json:"ext"`
+	Size               int64  `json:"size"`
+	Path               string `json:"path"`
 }
 
 type FileUploadRequest {
@@ -162,11 +180,11 @@ type FileUploadReply {
 }
 
 type UserRepositorySaveRequest {
-	ParentId           string `json:"parentId"`
+	ParentId           int64  `json:"parentId"`
 	RepositoryIdentity string `json:"repositoryIdentity"`
 	Ext                string `json:"ext"`
 	Name               string `json:"name"`
 }
 
-type UserRepositorySaveReply {
-}
+type UserRepositorySaveReply {}
+

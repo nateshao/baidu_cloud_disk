@@ -14,8 +14,13 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
-				Path:    "/user/login",
-				Handler: UserLoginHandler(serverCtx),
+				Path:    "/mail/code/send/register",
+				Handler: MailCodeSendRegisterHandler(serverCtx),
+			},
+			{
+				Method:  http.MethodGet,
+				Path:    "/share/basic/detail",
+				Handler: ShareBasicDetailHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
@@ -24,18 +29,13 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 			{
 				Method:  http.MethodPost,
-				Path:    "/mail/code/send/register",
-				Handler: MailCodeSendRegisterHandler(serverCtx),
+				Path:    "/user/login",
+				Handler: UserLoginHandler(serverCtx),
 			},
 			{
 				Method:  http.MethodPost,
 				Path:    "/user/register",
 				Handler: UserRegisterHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodGet,
-				Path:    "/share/basic/detail",
-				Handler: ShareBasicDetailHandler(serverCtx),
 			},
 		},
 	)
@@ -51,13 +51,18 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 				},
 				{
 					Method:  http.MethodPost,
-					Path:    "/user/repository/save",
-					Handler: UserRepositorySaveHandler(serverCtx),
+					Path:    "/user/file/list",
+					Handler: UserFileListHandler(serverCtx),
 				},
 				{
 					Method:  http.MethodPost,
-					Path:    "/user/file/list",
-					Handler: UserFileListHandler(serverCtx),
+					Path:    "/user/folder/list",
+					Handler: UserFolderListHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/user/repository/save",
+					Handler: UserRepositorySaveHandler(serverCtx),
 				},
 			}...,
 		),
