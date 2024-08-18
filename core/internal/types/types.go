@@ -81,6 +81,14 @@ type UserFileListRequest struct {
 	Size     int    `json:"size,optional"`
 }
 
+type UserFileMoveReply struct {
+}
+
+type UserFileMoveRequest struct {
+	Idnetity       string `json:"identity"`
+	ParentIdnetity string `json:"parent_identity"`
+}
+
 type UserFileNameUpdateReply struct {
 }
 

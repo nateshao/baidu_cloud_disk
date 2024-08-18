@@ -51,10 +51,10 @@ service core-api {
 	// 用户-文件删除
 	@handler UserFileDelete
 	delete /user/file/delete (UserFileDeleteRequest) returns (UserFileDeleteReply)
-//
-//    // 用户-文件移动
-//    @handler UserFileMove
-//    put /user/file/move(UserFileMoveRequest) returns (UserFileMoveReply)
+
+	// 用户-文件移动
+	@handler UserFileMove
+	put /user/file/move (UserFileMoveRequest) returns (UserFileMoveReply)
 //
 //    // 创建分享记录
 //    @handler ShareBasicCreate
@@ -80,6 +80,13 @@ service core-api {
 //    @handler FileUploadChunkComplete
 //    post /file/upload/chunk/complete(FileUploadChunkCompleteRequest) returns (FileUploadChunkCompleteReply)
 }
+
+type UserFileMoveRequest {
+	Idnetity       string `json:"identity"`
+	ParentIdnetity string `json:"parent_identity"`
+}
+
+type UserFileMoveReply {}
 
 type UserFileDeleteRequest {
 	Identity string `json:"identity"`
