@@ -50,6 +50,11 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 					Handler: FileUploadHandler(serverCtx),
 				},
 				{
+					Method:  http.MethodPost,
+					Path:    "/share/basic/create",
+					Handler: ShareBasicCreateHandler(serverCtx),
+				},
+				{
 					Method:  http.MethodDelete,
 					Path:    "/user/file/delete",
 					Handler: UserFileDeleteHandler(serverCtx),

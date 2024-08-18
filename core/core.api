@@ -55,10 +55,10 @@ service core-api {
 	// 用户-文件移动
 	@handler UserFileMove
 	put /user/file/move (UserFileMoveRequest) returns (UserFileMoveReply)
-//
-//    // 创建分享记录
-//    @handler ShareBasicCreate
-//    post /share/basic/create(ShareBasicCreateRequest) returns (ShareBasicCreateReply)
+
+	// 创建分享记录
+	@handler ShareBasicCreate
+	post /share/basic/create (ShareBasicCreateRequest) returns (ShareBasicCreateReply)
 //
 //    // 资源保存
 //    @handler ShareBasicSave
@@ -79,6 +79,15 @@ service core-api {
 //    // 文件分片上传完成
 //    @handler FileUploadChunkComplete
 //    post /file/upload/chunk/complete(FileUploadChunkCompleteRequest) returns (FileUploadChunkCompleteReply)
+}
+
+type ShareBasicCreateRequest {
+	UserRepositoryIdentity string `json:"user_repository_identity"`
+	ExpiredTime            int    `json:"expired_time"`
+}
+
+type ShareBasicCreateReply {
+	Identity string `json:"identity"`
 }
 
 type UserFileMoveRequest {

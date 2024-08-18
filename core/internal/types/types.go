@@ -32,6 +32,15 @@ type MailCodeSendRequest struct {
 	Email string `json:"email"`
 }
 
+type ShareBasicCreateReply struct {
+	Identity string `json:"identity"`
+}
+
+type ShareBasicCreateRequest struct {
+	UserRepositoryIdentity string `json:"user_repository_identity"`
+	ExpiredTime            int    `json:"expired_time"`
+}
+
 type ShareBasicDetailReply struct {
 	RepositoryIdentity string `json:"repository_identity"`
 	Name               string `json:"name"`
