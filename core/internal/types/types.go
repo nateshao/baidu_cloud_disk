@@ -63,6 +63,13 @@ type UserFile struct {
 	Size               int64  `json:"size"`
 }
 
+type UserFileDeleteReply struct {
+}
+
+type UserFileDeleteRequest struct {
+	Identity string `json:"identity"`
+}
+
 type UserFileListReply struct {
 	List  []*UserFile `json:"list"`
 	Count int64       `json:"count"`
