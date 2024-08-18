@@ -39,10 +39,10 @@ service core-api {
 	// 用户文件夹列表
 	@handler UserFolderList
 	post /user/folder/list (UserFolderListRequest) returns (UserFolderListReply)
-//
-//    // 用户文件名称修改
-//    @handler UserFileNameUpdate
-//    post /user/file/name/update(UserFileNameUpdateRequest) returns (UserFileNameUpdateReply)
+
+	// 用户文件名称修改
+	@handler UserFileNameUpdate
+	post /user/file/name/update (UserFileNameUpdateRequest) returns (UserFileNameUpdateReply)
 //
 //    // 用户-文件夹创建
 //    @handler UserFolderCreate
@@ -80,6 +80,13 @@ service core-api {
 //    @handler FileUploadChunkComplete
 //    post /file/upload/chunk/complete(FileUploadChunkCompleteRequest) returns (FileUploadChunkCompleteReply)
 }
+
+type UserFileNameUpdateRequest {
+	Identity string `json:"identity"`
+	Name     string `json:"name"`
+}
+
+type UserFileNameUpdateReply {}
 
 type UserFolderListRequest {
 	Identity string `json:"identity,optional"`

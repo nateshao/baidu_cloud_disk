@@ -74,6 +74,14 @@ type UserFileListRequest struct {
 	Size     int    `json:"size,optional"`
 }
 
+type UserFileNameUpdateReply struct {
+}
+
+type UserFileNameUpdateRequest struct {
+	Identity string `json:"identity"`
+	Name     string `json:"name"`
+}
+
 type UserFolder struct {
 	Identity string `json:"identity"`
 	Name     string `json:"name"`
