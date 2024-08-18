@@ -32,6 +32,14 @@ type MailCodeSendRequest struct {
 	Email string `json:"email"`
 }
 
+type RefreshAuthorizationReply struct {
+	Token        string `json:"token"`
+	RefreshToken string `json:"refresh_token"`
+}
+
+type RefreshAuthorizationRequest struct {
+}
+
 type ShareBasicCreateReply struct {
 	Identity string `json:"identity"`
 }

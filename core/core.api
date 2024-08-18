@@ -63,10 +63,10 @@ service core-api {
 	// 资源保存
 	@handler ShareBasicSave
 	post /share/basic/save (ShareBasicSaveRequest) returns (ShareBasicSaveReply)
-//
-//    // 刷新Authorization
-//    @handler RefreshAuthorization
-//    post /refresh/authorization(RefreshAuthorizationRequest) returns (RefreshAuthorizationReply)
+
+	// 刷新Authorization
+	@handler RefreshAuthorization
+	post /refresh/authorization (RefreshAuthorizationRequest) returns (RefreshAuthorizationReply)
 //
 //    // 文件上传前基本信息处理
 //    @handler FileUploadPrepare
@@ -79,6 +79,13 @@ service core-api {
 //    // 文件分片上传完成
 //    @handler FileUploadChunkComplete
 //    post /file/upload/chunk/complete(FileUploadChunkCompleteRequest) returns (FileUploadChunkCompleteReply)
+}
+
+type RefreshAuthorizationRequest {}
+
+type RefreshAuthorizationReply {
+	Token        string `json:"token"`
+	RefreshToken string `json:"refresh_token"`
 }
 
 type ShareBasicSaveRequest {
