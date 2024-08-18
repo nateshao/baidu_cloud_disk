@@ -53,6 +53,15 @@ type ShareBasicDetailRequest struct {
 	Identity string `json:"identity,optional"`
 }
 
+type ShareBasicSaveReply struct {
+	Identity string `json:"identity"`
+}
+
+type ShareBasicSaveRequest struct {
+	RepositoryIdentity string `json:"repository_identity"`
+	ParentId           int64  `json:"parent_id"`
+}
+
 type UserDetailReply struct {
 	Name  string `json:"name"`
 	Email string `json:"email"`
